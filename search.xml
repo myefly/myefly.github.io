@@ -1,9 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[开源 NAS 操作系统的不完全汇总]]></title>
+    <url>%2Fnas-all.html</url>
+    <content type="text"><![CDATA[FreeNAS®目前最受欢迎的开源免费 NAS 操作系统之一，基于以安全和稳定著称的 FreeBSD 系统开发，由 ixsystems 公司的技术团队维护。项目地址：www.freenas.org NAS4Free基于 FreeNAS 0.7 开发的一个分支，由原 FreeNAS 系统开发者发起创建。许多恋旧的朋友忠实的跟随，安装要求没有 FreeNAS 高，版本更新也很及时。项目地址：www.nas4free.org OpenMediaVault由原 FreeNAS 核心开发成员 Volker Theile 发起的基于 Debian Linux 的开源 NAS 操作系统，主要面向家庭用户和小型办公环境，最近发布了针对树莓派的安装包，值得关注。项目地址：www.openmediavault.org Openfiler另一款基于浏览器管理的开源 NAS 操作系统，许多人说他好用，因为它基于 rPath Linux 开发。2013年以后，这款 NAS 系统的开源版本再没有更新。项目地址：www.openfiler.com NexentaStor基于 OpenSolaris 开发，与 FreeNAS 一样采用强大的 ZFS 文件系统。该系统由 Nexenta Systems 公司技术团队维护，同时提供社区开原版和商业付费版本，社区开原版有 18TB 的存储容量限制，有人说 NexentaStor 比 OpenFiler 好用。项目地址：www.nexentastor.org RockStor一款基于 Linux 的开源 NAS 系统，采用企业级文件系统 BTRFS，提供 SMB/CIFS、NFS 以及 SFTP 常见的共享方式。第一个 ISO 镜像发布于 2014-10-02，可见这套 NAS 系统初出茅庐，暂无简体中文支持。不过官网文档已经备齐，保持关注，可能有一番作为。项目地址：rockstor.com EasyNAS另一款非常年轻的 NAS 系统，与 RockStor 很像，同样采用企业级文件系统 BTRFS，但官方网站和文档会略逊一筹，第一个 ISO 镜像发布于 2014-05-10。项目地址：www.easynas.org]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>USB</tag>
+        <tag>优盘启动</tag>
+        <tag>启动盘</tag>
+        <tag>osx</tag>
+        <tag>苹果</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[OSX下USB启动盘创建工具]]></title>
+    <url>%2Fosx-usb-boot-creater.html</url>
+    <content type="text"><![CDATA[UNetbootin for OSXEtcher for OSX]]></content>
+      <categories>
+        <category>OSX</category>
+      </categories>
+      <tags>
+        <tag>USB</tag>
+        <tag>优盘启动</tag>
+        <tag>启动盘</tag>
+        <tag>osx</tag>
+        <tag>苹果</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下USB启动盘创建工具]]></title>
+    <url>%2Flinux-usb-boot-creater.html</url>
+    <content type="text"><![CDATA[UNetbootin for LinuxEtcher for LinuxLinux dd命令假设你的u盘对应的设备是sdb1(可以使用df查看或者fdisk) sudo umount /dev/sdb1 sudo dd if=./xxx.iso of=/dev/sdb]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>USB</tag>
+        <tag>优盘启动</tag>
+        <tag>启动盘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows下USB启动盘创建工具]]></title>
+    <url>%2Fwindows-usb-boot-creater.html</url>
+    <content type="text"><![CDATA[RufusRufus是我一直在用的一款制作U盘启动盘的工具，功能十分全面。极力推荐。 UNetbootin for WindowsEtcher for Windows]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>USB</tag>
+        <tag>优盘启动</tag>
+        <tag>启动盘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[群晖NAS硬盘出错后的数据读取]]></title>
+    <url>%2Fsynology-nas-data-recovery.html</url>
+    <content type="text"><![CDATA[网上很多文章都说群晖数据如何如何不安全，其实不然。请大家仔细阅读官方说明，其实群晖硬盘格式为EXT4，最多再加个RAID，这个组合在当今条件下是可以简单解决的。 网上已经有人测试在不同硬盘，不同硬盘格式及组合情况下的群晖NAS，如果硬盘出错后，数据是不是能拿回，结果是都可以 具体看此文：http://www.chiphell.com/thread-1093099-1-1.html 原理很简单，群晖是LINUX系统，RAID是软RAID，解决方案即找个LINUX，用LINUX默认的RAID命令重组数据部分就可以了。 上文LZ用了白群，其实黑群一样，只需要一个ubuntu 12.10以上的LINUX系统（其他也可以，但是需要有LVM2和MADAM命令）连接上硬盘，启动UBUNTU，运行：mdadm –Asf &amp;&amp; vgchange -ay 这个是官方解决方案：https://www.synology.cn/zh-cn/knowledgebase/faq/579 综上所述，各位只需要在制作启动盘的时候加入linux系统（需LVM2和MADAM命令）就可以 比如：这个是我的群晖优盘目录（GRUB4DOS引导），一旦群晖出问题，重启进入Linux挂上USB设备就可以复制数据了 1.XPENOBOOT 5.2.5592 ：黑群晖镜像，默认5秒自动加载 2.chiannet大大的Win8 RAMOS ：带网络 3.puppy linux 4.slax live linux 5.ubuntu live PS.Windows下重建的RAID的工具谁知道？？找个放到WIN8 RAMOS里就完美了PPS.工具找到了：UFS Explorer Professional Recoveryhttp://pan.baidu.com/s/1gdzz34R]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>NAS</tag>
+        <tag>硬盘错误</tag>
+        <tag>数据恢复</tag>
+        <tag>群晖数据恢复</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[系统启动失败，报0xc000014c错误]]></title>
     <url>%2Ferror-0xc000014c.html</url>
-    <content type="text"><![CDATA[错误系统环境：联想笔记本G40系列 64位 Windows 7 错误现象：开机启动后，黑屏白字报错123456789Windows Boot Manager Windows failed to start. A recent hardware or software change might be the cause. To fix the Problem: 1. Insert your Windows installation disc and restart your computer. 2. Choose your language settings, and click “Next.” 3. Click “Repair your computer.” If you do not have this disc, contact your system administrator or computer manufacturer for assistance. File: \Windows\system32\config\systemStatus: 0xc000014c Info: Windows failed to load because the system registry file is missing, or corrupt. 上述文字大致意思就是：由于\Windows\system32\config\路径下的system文件损坏或丢失，导致系统无法启动，并报0xc000014c错误 错误分析：造成上述找不到系统文件的情况有很多种，如内存不稳定，硬盘坏了，该文件前次关机时不小心丢失结合本案，由于是笔记本，所以拆机擦内存条啊，换硬盘什么的肯定是最后的办法了，所以我从软件方面考虑，优先考虑是前次关机不小心，导致该文件丢失所以无法启动。 解决方案：该文件应该是注册表文件，对于该文件的丢失，网上有很多方案，但大多数都是以前NT5系列操作系统（XP、2K3）的解决方案。大致就是通过第三方系统登录该计算机，找到config/repair目录中对应的备份文件，替换之。由于本案系统为win7（NT6）系列，所以系统内对应的repair文件夹已经更名为regback了。 So，操作如下（注意权限问题）： 1.微软官方维护盘或者PE重启系统，登录WinPE或者进入修复选项，在出现的命令提示符窗口分条，输入以下代码123cd c:\Windows\system32\config ren SYSTEM SYSTEM.BACKUP copy regback\SYSTEM SYSTEM 输入完成后重启计算机，即可恢复正常。 2.第三方系统（各类维护PE或者Linux、OSX维护盘）重启系统，登录PE，手动去c:\Windows\system32\config中找到损坏文件，先备份然后找到regback文件夹中的对应文件，复制替换损坏文件即可。 最后注意：通过以上方法还是不能进入系统的，就应该考虑是否从硬件入手。比如内存松了或者脏了？硬盘接口，坏道等等还有，由于使用最原始的文件进行替换操作，进入系统后一些系统底层的设置都会消失。本案最明显的特点，就是重启后，系统自动匹配注册数据，在第二次重启后，Win7的激活就消失了，需要再次激活。]]></content>
+    <content type="text"><![CDATA[错误系统环境： 联想笔记本G40系列 64位 Windows 7 错误现象： 开机启动后，黑屏白字报错123456789 Windows Boot Manager Windows failed to start. A recent hardware or software change might be the cause. To fix the Problem: 1. Insert your Windows installation disc and restart your computer. 2. Choose your language settings, and click “Next.” 3. Click “Repair your computer.” If you do not have this disc, contact your system administrator or computer manufacturer for assistance. File: \Windows\system32\config\system Status: 0xc000014c Info: Windows failed to load because the system registry file is missing, or corrupt. 上述文字大致意思就是：由于\Windows\system32\config\路径下的system文件损坏或丢失，导致系统无法启动，并报0xc000014c错误 错误分析： 造成上述找不到系统文件的情况有很多种，如内存不稳定，硬盘坏了，该文件前次关机时不小心丢失。 结合本案，由于是笔记本，所以拆机擦内存条啊，换硬盘什么的肯定是最后的办法了，所以我从软件方面考虑，优先考虑是前次关机不小心，导致该文件丢失所以无法启动。 解决方案： 该文件应该是注册表文件，对于该文件的丢失，网上有很多方案，但大多数都是以前NT5系列操作系统（XP、2K3）的解决方案。 大致就是通过第三方系统登录该计算机，找到config/repair目录中对应的备份文件，替换之。由于本案系统为win7（NT6）系列，所以系统内对应的repair文件夹已经更名为regback了。 So，操作如下（注意权限问题）： 1.微软官方维护盘或者PE重启系统，登录WinPE或者进入修复选项，在出现的命令提示符窗口分条，输入以下代码123cd c:\Windows\system32\config ren SYSTEM SYSTEM.BACKUP copy regback\SYSTEM SYSTEM 输入完成后重启计算机，即可恢复正常。 2.第三方系统（各类维护PE或者Linux、OSX维护盘） 重启系统，登录PE，手动去c:\Windows\system32\config中找到损坏文件，先备份然后找到regback文件夹中的对应文件，复制替换损坏文件即可。 最后注意： 通过以上方法还是不能进入系统的，就应该考虑是否从硬件入手。比如内存松了或者脏了？硬盘接口，坏道等等 还有，由于使用最原始的文件进行替换操作，进入系统后一些系统底层的设置都会消失。 本案最明显的特点，就是重启后，系统自动匹配注册数据，在第二次重启后，Win7的激活就消失了，需要再次激活。]]></content>
       <categories>
         <category>Windows</category>
       </categories>
